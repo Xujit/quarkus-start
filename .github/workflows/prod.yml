@@ -4,7 +4,7 @@ env:
   CAPROVER_APP: test
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   workflow_dispatch:
 jobs:
   build_and_push:
