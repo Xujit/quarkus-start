@@ -1,5 +1,7 @@
 name: Cap Build & Deploy
-
+env:
+  CAPROVER_HOST: 'https://captain.talency.in/'
+  CAPROVER_APP: test
 on:
   push:
     branches: [ "master" ]
@@ -37,6 +39,6 @@ jobs:
       - name: Deploy App to CapRover
         uses: caprover/deploy-from-github@v1.1.2
         with:
-          server: 'https://64.227.156.171/'
-          app: 'test'
+          server: ${{ env.CAPROVER_HOST }}
+          app: ${{ env.CAPROVER_APP }}
           token: '${{ secrets.APP_TOKEN }}'          
