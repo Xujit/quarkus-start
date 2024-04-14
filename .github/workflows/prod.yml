@@ -26,7 +26,6 @@ jobs:
           mvn -B package --file pom.xml  -Dmaven.test.skip -DskipTests=true
           mkdir dist
           cp ./target/*.jar dist/.
-          cp run.sh dist/.
           cp captain-definition dist/.
       - uses: a7ul/tar-action@v1.2.0
         with:
