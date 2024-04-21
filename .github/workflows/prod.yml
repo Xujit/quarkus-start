@@ -1,6 +1,7 @@
 name: Cap Build & Deploy
 env:
   CAPROVER_HOST: 'https://captain.talency.in/'
+  #remember to change the secret.app_token if changing the caprover_app  
   CAPROVER_APP: test
 on:
   push:
