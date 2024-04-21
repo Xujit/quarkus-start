@@ -27,7 +27,7 @@ jobs:
           mkdir dist
           cp -r target/quarkus-app/ dist/target/quarkus-app/
           cp captain-definition dist/.
-          cp Dockerfile dist/.
+          cp src/main/docker/Dockerfile.jvm dist/Dockerfile
       - uses: a7ul/tar-action@v1.2.0
         with:
           command: c
