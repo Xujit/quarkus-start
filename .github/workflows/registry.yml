@@ -18,7 +18,7 @@ jobs:
           mvn -B package --file pom.xml  -Dmaven.test.skip -DskipTests=true
           cp src/main/docker/Dockerfile.jvm ./Dockerfile
       - name: Build image 
-        run: docker build -f Dockerfile -t test/test-app .
+        run: docker build -f Dockerfile -t talenzy/test-app .
       - name: Install doctl test-app
         uses: digitalocean/action-doctl@v2
         with:
@@ -29,6 +29,6 @@ jobs:
           doctl registry repository delete-tag test 1.0 --force
       - name: Tag image 
         run:
-          docker tag test/test-app registry.digitalocean.com/test/test-app:1.0
+          docker tag talenzy/test-app registry.digitalocean.com/talenzy/test-app:1.0
       - name: Push image to DO Container Registry 
-        run: docker push registry.digitalocean.com/test/test-app:1.0
+        run: docker push registry.digitalocean.com/talenzy/test-app:1.0
