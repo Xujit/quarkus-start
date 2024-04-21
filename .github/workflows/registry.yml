@@ -18,17 +18,17 @@ jobs:
           mvn -B package --file pom.xml  -Dmaven.test.skip -DskipTests=true
           cp src/main/docker/Dockerfile.jvm ./Dockerfile
       - name: Build image 
-        run: docker build -f Dockerfile -t talency/talency-app .
-      - name: Install doctl talency-app
+        run: docker build -f Dockerfile -t test/test-app .
+      - name: Install doctl test-app
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - name: Log in to DO Container Registry 
         run: |
           doctl registry login  --expiry-seconds 600
-          doctl registry repository delete-tag talency 1.0 --force
+          doctl registry repository delete-tag test 1.0 --force
       - name: Tag image 
         run:
-          docker tag talency/talency-app registry.digitalocean.com/talency/talency-app:1.0
+          docker tag test/test-app registry.digitalocean.com/test/test-app:1.0
       - name: Push image to DO Container Registry 
-        run: docker push registry.digitalocean.com/talency/talency-app:1.0
+        run: docker push registry.digitalocean.com/test/test-app:1.0
