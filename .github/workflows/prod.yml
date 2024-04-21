@@ -25,8 +25,9 @@ jobs:
         run: |
           mvn -B package --file pom.xml  -Dmaven.test.skip -DskipTests=true
           mkdir dist
-          cp ./target/*.jar dist/.
+          cp -f target dist/
           cp captain-definition dist/.
+          cp Dockerfile dist/.
       - uses: a7ul/tar-action@v1.2.0
         with:
           command: c
