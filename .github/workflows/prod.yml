@@ -24,8 +24,8 @@ jobs:
       - name: Build with Maven
         run: |
           mvn -B package --file pom.xml  -Dmaven.test.skip -DskipTests=true
-          mkdir -p dist/target/quarkus-app/
-          cp -r target/quarkus-app/ dist/target/quarkus-app/
+          mkdir -p dist/target/
+          cp -r target/quarkus-app/ dist/target/
           cp captain-definition dist/.
           cp src/main/docker/Dockerfile.jvm dist/Dockerfile
       - uses: a7ul/tar-action@v1.2.0
