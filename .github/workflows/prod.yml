@@ -1,7 +1,7 @@
 name: Cap Build & Deploy
 env:
   CAPROVER_HOST: 'https://captain.talency.in/'
-  CAPROVER_APP: hrm
+  CAPROVER_APP: test
 on:
   push:
     branches: [ "master" ]
