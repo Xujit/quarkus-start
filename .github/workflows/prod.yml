@@ -2,7 +2,7 @@ name: Cap Build & Deploy
 env:
   CAPROVER_HOST: 'https://captain.talency.in/'
   #remember to change the secret.app_token if changing the caprover_app  
-  CAPROVER_APP: test
+  CAPROVER_APP: talency
 on:
   push:
     branches: [ "master" ]
@@ -42,4 +42,4 @@ jobs:
         with:
           server: ${{ env.CAPROVER_HOST }}
           app: ${{ env.CAPROVER_APP }}
-          token: '${{ secrets.APP_TOKEN }}'          
+          token: '${{ secrets.TEST_APP_TOKEN }}'          
